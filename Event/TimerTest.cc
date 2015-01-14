@@ -29,6 +29,9 @@ struct MyTimer : public Event::Timer {
         , triggerCount(0)
     {
     }
+    ~MyTimer() {
+        destroy();
+    }
     void handleTimerEvent() {
         EXPECT_FALSE(isScheduled());
         ++triggerCount;

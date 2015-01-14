@@ -30,6 +30,9 @@ struct ExitOnSigTerm : public Event::Signal {
         , triggerCount(0)
     {
     }
+    ~ExitOnSigTerm() {
+        destroy();
+    }
     void handleSignalEvent() {
         ++triggerCount;
         eventLoop.exit();

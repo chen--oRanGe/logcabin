@@ -64,6 +64,7 @@ MessageSocket::SendSocket::SendSocket(Event::Loop& eventLoop,
 
 MessageSocket::SendSocket::~SendSocket()
 {
+    destroy();
 }
 
 void
@@ -94,6 +95,7 @@ MessageSocket::ReceiveSocket::ReceiveSocket(Event::Loop& eventLoop,
 
 MessageSocket::ReceiveSocket::~ReceiveSocket()
 {
+    destroy();
 }
 
 void

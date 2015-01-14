@@ -49,6 +49,9 @@ class ReplyTimer : public Event::Timer {
     {
         schedule(delayMicros * 1000);
     }
+    ~ReplyTimer() {
+        destroy();
+    }
     void handleTimerEvent() {
         VERBOSE("Ok responding");
         serverRPC.sendReply();

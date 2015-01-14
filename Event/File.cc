@@ -43,6 +43,13 @@ File::File(Event::Loop& eventLoop, int fd, int fileEvents)
 
 File::~File()
 {
+    std::unique_lock<std::mutex> mutexGuard(fdMutex);
+    assert(fd < 0);
+}
+
+void
+File::destroy()
+{
     Event::Loop::Lock lock(eventLoop);
     int released = release();
     if (released >= 0) {

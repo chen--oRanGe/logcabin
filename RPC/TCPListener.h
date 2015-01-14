@@ -84,6 +84,7 @@ class TCPListener {
         explicit BoundListener(TCPListener& tcpListener,
                                Event::Loop& eventLoop,
                                int fd);
+        ~BoundListener();
         void handleFileEvent(int events);
         TCPListener& tcpListener;
     };

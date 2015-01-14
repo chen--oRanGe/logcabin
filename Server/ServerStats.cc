@@ -102,6 +102,11 @@ ServerStats::SignalHandler::SignalHandler(Event::Loop& eventLoop,
 {
 }
 
+ServerStats::SignalHandler::~SignalHandler()
+{
+    destroy();
+}
+
 void
 ServerStats::SignalHandler::handleSignalEvent()
 {
@@ -119,6 +124,11 @@ ServerStats::TimerHandler::TimerHandler(Event::Loop& eventLoop,
 {
     if (intervalNanos != 0)
         schedule(intervalNanos);
+}
+
+ServerStats::TimerHandler::~TimerHandler()
+{
+    destroy();
 }
 
 void

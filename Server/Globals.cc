@@ -35,6 +35,11 @@ Globals::ExitHandler::ExitHandler(Event::Loop& eventLoop, int signalNumber)
 {
 }
 
+Globals::ExitHandler::~ExitHandler()
+{
+    destroy();
+}
+
 void
 Globals::ExitHandler::handleSignalEvent()
 {

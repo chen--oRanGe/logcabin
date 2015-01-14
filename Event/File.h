@@ -58,6 +58,8 @@ class File {
      */
     virtual ~File();
 
+    void destroy();
+
     /**
      * This method is overridden by a subclass and invoked when a file event
      * occurs. This method will be invoked by the main event loop on

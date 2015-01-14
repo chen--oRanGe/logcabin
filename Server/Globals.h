@@ -56,6 +56,7 @@ class Globals {
     class ExitHandler : public Event::Signal {
       public:
         ExitHandler(Event::Loop& eventLoop, int signalNumber);
+        ~ExitHandler();
         void handleSignalEvent();
     };
 

@@ -30,6 +30,9 @@ class Counter : public Event::Timer {
         , exitAfter(exitAfter)
     {
     }
+    ~Counter() {
+        destroy();
+    }
     void handleTimerEvent() {
         ++count;
         if (count > exitAfter)

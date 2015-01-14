@@ -37,6 +37,9 @@ class NullTimer : public Event::Timer {
     explicit NullTimer(Event::Loop& eventLoop)
         : Event::Timer(eventLoop) {
     }
+    ~NullTimer() {
+        destroy();
+    }
     void handleTimerEvent() {
     }
 };

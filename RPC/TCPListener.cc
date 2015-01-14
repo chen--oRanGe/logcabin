@@ -38,6 +38,11 @@ TCPListener::BoundListener::BoundListener(TCPListener& tcpListener,
 {
 }
 
+TCPListener::BoundListener::~BoundListener()
+{
+    destroy();
+}
+
 void
 TCPListener::BoundListener::handleFileEvent(int events)
 {

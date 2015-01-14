@@ -61,6 +61,9 @@ struct FileNotifier : public Event::File {
         , count(0)
     {
     }
+    ~FileNotifier() {
+        destroy();
+    }
     void handleFileEvent(int events) {
         ++count;
         eventLoop.exit();
@@ -75,6 +78,9 @@ struct FileNotifier : public Event::File {
 struct TimerNotifier : public Event::Timer {
     explicit TimerNotifier(Event::Loop& eventLoop)
         : Event::Timer(eventLoop) {
+    }
+    ~TimerNotifier() {
+        destroy();
     }
     void handleTimerEvent() {
         eventLoop.exit();
@@ -184,6 +190,11 @@ ClientSession::Timer::Timer(ClientSession& session)
     : Event::Timer(session.eventLoop)
     , session(session)
 {
+}
+
+ClientSession::Timer::~Timer()
+{
+    destroy();
 }
 
 void

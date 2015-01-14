@@ -201,6 +201,7 @@ class ClientSession {
     class Timer : public Event::Timer {
       public:
         explicit Timer(ClientSession& session);
+        ~Timer();
         void handleTimerEvent();
         ClientSession& session;
     };

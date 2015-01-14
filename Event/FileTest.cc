@@ -33,6 +33,9 @@ struct MyFile : public Event::File {
         , triggerCount(0)
     {
     }
+    ~MyFile() {
+        destroy();
+    }
     void handleFileEvent(int events) {
         ++triggerCount;
         eventLoop.exit();

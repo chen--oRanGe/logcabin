@@ -88,6 +88,8 @@ class ServerStats {
       public:
         /// Constructor. Registers itself as SIGUSR1 handler.
         SignalHandler(Event::Loop& eventLoop, ServerStats& serverStats);
+        /// Destructor.
+        ~SignalHandler();
         /// Fires when SIGUSR1 is received. Prints the stats to the log.
         void handleSignalEvent();
         /// Handle to containing class.
@@ -101,6 +103,8 @@ class ServerStats {
       public:
         /// Constructor. Begins periodic timer.
         TimerHandler(Event::Loop& eventLoop, ServerStats& serverStats);
+        /// Destructor.
+        ~TimerHandler();
         /// Fires when timer expires. Prints the stats to the log.
         void handleTimerEvent();
         /// Handle to containing class.
